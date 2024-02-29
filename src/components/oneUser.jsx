@@ -9,7 +9,7 @@ const OneUser = ({ name, nickName, age, close }) => {
                 나이 : {age}
             </div>
 
-            <button onclick={close}>삭제</button>
+            <button onClick={close}>삭제</button>
         </div>
     );
 };

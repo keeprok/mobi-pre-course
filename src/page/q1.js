@@ -1,8 +1,8 @@
 // 1. 상태의 추가, 조회, 갱신, 삭제하기 문제입니다.
 // 목표: 나는 상태의 변경을 자유롭게 할 수 있다.
 
-import OneUser from "../components/oneuser";
 import { useState } from "react";
+import OneUser from "../components/oneUser";
 
 const MainPage = () => {
     const [users, setUsers] = useState([
@@ -25,20 +25,41 @@ const MainPage = () => {
             age: 20,
         },
     ]);
+    const addUser = (e) => {
+        e.preventDefault();
+        const Data = e.target;
+        const newUser = {
+            id: Math.floor(Math.random() * 10000),
+            name: Data.name.value,
+            nickName: Data.nickName.value,
+            age: Data.age.value,
+        };
+        setUsers([newUser, ...users]);
+    };
+    const deleteUser = (userId) => {
+        // console.log("삭제기원");
+        setUsers(users.filter((user) => user.id !== userId));
+    };
     return (
         <div>
             {users.map((user) => (
                 <>
                     <OneUser
-                        key={user.id}
                         name={user.name}
                         nickName={user.nickName}
                         age={user.age}
+                        // close={deleteUser(user.id)}
+                        close={() => deleteUser(user.id)}
                     />
                     <br />
                 </>
             ))}
-            <button>추가</button>
+            <form onSubmit={addUser}>
+                <input type="text" name="name" placeholder="이름" />
+                <input type="text" name="nickName" placeholder="닉네임" />
+                <input type="number" name="age" placeholder="나이" />
+                <button type="submit">추가</button>
+            </form>
         </div>
     );
 };
