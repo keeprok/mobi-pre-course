@@ -1,4 +1,4 @@
-const OneUser = ({ name, nickName, age, close }) => {
+const OneUser = ({ name, nickName, age, close, upDate }) => {
     return (
         <div>
             <div>
@@ -10,6 +10,7 @@ const OneUser = ({ name, nickName, age, close }) => {
             </div>
 
             <button onClick={close}>삭제</button>
+            <button onClick={upDate}>수정</button>
         </div>
     );
 };

@@ -40,6 +40,7 @@ const MainPage = () => {
         // console.log("삭제기원");
         setUsers(users.filter((user) => user.id !== userId));
     };
+    const upDateNickname = () => {};
     return (
         <div>
             {users.map((user) => (
@@ -50,6 +51,7 @@ const MainPage = () => {
                         age={user.age}
                         // close={deleteUser(user.id)}
                         close={() => deleteUser(user.id)}
+                        upDate={upDateNickname}
                     />
                     <br />
                 </>
