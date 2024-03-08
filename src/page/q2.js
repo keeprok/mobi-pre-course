@@ -89,3 +89,11 @@ const SubPage = () => {
     );
 };
 export default SubPage;
+/*useState안의 값을 변경하는 코드입니다
+ *{updateIsLike} : isLike 상태를 변환시켜주는 함수입니다
+ *{(currentList.map())} : 배열중 하나의 객체를 특정하기위해 map을 돌려 찾앗습니다
+ *{? : } :  true ,false가 실행되는것을 구분하기 위해 사용합니다
+ *{updateNickname} : nickName을 변환시켜주는 함수입니다
+ *{updateIsLikes} : 배열이 아니고 객체 하나만있으면 어떻게 되는 미리 실험 해볼려고 넣은 함수입니다
+ *{{product.isLiked ? "좋아요" : "좋아요 안함"}} :true false상태를 ui로 보기위해 넣어둔 것입니다
+ */
